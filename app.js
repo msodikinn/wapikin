@@ -11,6 +11,8 @@ const server = http.createServer(app);
 const io = socketIO(server);
 const { phoneNumberFormat } = require('./helper/formatter');
 const fileUpload = require('express-fileupload');
+const port = process.env.PORT || 9000;
+
 
 app.use(express.json());
 app.use(express.urlencoded(({extended:true})));
@@ -180,6 +182,6 @@ app.post('/send-media-upload', (req, res) => {
 	})
 })
 
-server.listen(9000, function(){
-	console.log('App running on :'+9000)
+server.listen(port, function(){
+	console.log('App running on :' + port)
 })
